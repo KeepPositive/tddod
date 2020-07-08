@@ -12,6 +12,8 @@
 #include "helpers/ParticleHelpers.h"
 #include "helpers/RenderingHelpers.h"
 
+#include <cmath>
+
 namespace PFX
 {
     void spawnParticlesFromShape(Registry &registry, const Position &position, const ShapeRenderer &shapeRenderer, const Size &size, const Color &color)
@@ -28,7 +30,7 @@ namespace PFX
 
             auto vdx = vertex2.position.x - vertex1.position.x;
             auto vdy = vertex2.position.y - vertex1.position.y;
-            auto l = std::sqrtf(vdx * vdx + vdy * vdy);
+            auto l = sqrtf(vdx * vdx + vdy * vdy);
             vdx = vdx / l * 0.025f;
             vdy = vdy / l * 0.025f;
             auto p = vertex1.position;

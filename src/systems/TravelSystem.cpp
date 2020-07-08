@@ -4,6 +4,8 @@
 #include "components/Speed.h"
 #include "components/Traveler.h"
 
+#include <cmath>
+
 void updateTravelSystem(Registry &registry, float dt)
 {
     registry.view<Traveler, Position, Speed>().each([&registry, dt](auto entity, Traveler &traveler, Position &position, const Speed &speed)
@@ -13,7 +15,7 @@ void updateTravelSystem(Registry &registry, float dt)
         auto nextPosition = traveler.pWaypoints[i];
         auto dx = nextPosition.x - curPosition.x;
         auto dy = nextPosition.y - curPosition.y;
-        auto dis = std::sqrtf(dx * dx + dy * dy);
+        auto dis = sqrtf(dx * dx + dy * dy);
         auto newDis = dis - speed.speed * dt;
 
         while (newDis <= 0.0f)
@@ -29,7 +31,7 @@ void updateTravelSystem(Registry &registry, float dt)
             nextPosition = traveler.pWaypoints[i];
             dx = nextPosition.x - curPosition.x;
             dy = nextPosition.y - curPosition.y;
-            dis = std::sqrtf(dx * dx + dy * dy);
+            dis = sqrtf(dx * dx + dy * dy);
             newDis += dis;
         }
 

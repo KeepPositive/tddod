@@ -61,6 +61,8 @@
 #include "helpers/UIHelpers.h"
 #include "helpers/WaveHelpers.h"
 
+#include <cstring>
+
 namespace Game
 {
     void init(Registry &registry)

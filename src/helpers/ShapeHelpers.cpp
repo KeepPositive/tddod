@@ -47,13 +47,13 @@ namespace Shape
 
         for (float i = 0.0f; i < PI2; i += STEP, ++vertCount)
         {
-            pVertices[vertCount].position.x = position.x + std::cosf(i) * w; //TODO: Precompute cos/sin here because we always have fixed amount of verts
-            pVertices[vertCount].position.y = position.y + std::sinf(i) * h;
+            pVertices[vertCount].position.x = position.x + cosf(i) * w; //TODO: Precompute cos/sin here because we always have fixed amount of verts
+            pVertices[vertCount].position.y = position.y + sinf(i) * h;
             pVertices[vertCount].color = color;
 
             ++vertCount;
-            pVertices[vertCount].position.x = position.x + std::cosf(i + STEP) * w;
-            pVertices[vertCount].position.y = position.y + std::sinf(i + STEP) * h;
+            pVertices[vertCount].position.x = position.x + cosf(i + STEP) * w;
+            pVertices[vertCount].position.y = position.y + sinf(i + STEP) * h;
             pVertices[vertCount].color = color;
         }
 

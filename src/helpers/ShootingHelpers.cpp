@@ -23,6 +23,8 @@
 #include "helpers/ShapeHelpers.h"
 #include "helpers/ShootingHelpers.h"
 
+#include <cmath>
+
 static void onSlowBoltImpact(Registry &registry, Entity entity)
 {
     auto impactPoint = registry.get<Position>(entity);
@@ -75,7 +77,7 @@ namespace Shooting
     {
         float dx = to.x - from.x;
         float dy = to.y - from.y;
-        float l = std::sqrtf(dx * dx + dy * dy);
+        float l = sqrtf(dx * dx + dy * dy);
 
         auto entity = registry.create();
         registry.assign<Position>(entity, from);
@@ -90,7 +92,7 @@ namespace Shooting
     {
         float dx = to.x - from.x;
         float dy = to.y - from.y;
-        float l = std::sqrtf(dx * dx + dy * dy);
+        float l = sqrtf(dx * dx + dy * dy);
 
         auto entity = registry.create();
         registry.assign<Position>(entity, from);
@@ -107,7 +109,7 @@ namespace Shooting
         // Left vector
         float dx = to.x - from.x;
         float dy = to.y - from.y;
-        float l = std::sqrtf(dx * dx + dy * dy);
+        float l = sqrtf(dx * dx + dy * dy);
         dx /= l;
         dy /= l;
         float lx = -dy * 0.25f;

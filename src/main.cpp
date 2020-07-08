@@ -11,7 +11,8 @@
 #include <SDL.h>
 
 #include <chrono>
-#include <stdio.h>
+#include <cstdio>
+#include <cstring>
 
 #include "constants.h"
 #include "game.h"
